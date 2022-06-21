@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { AspectRatio, Center, Image, NativeBaseProvider } from "native-base";
+import * as elements from "./components/cardComponent";
+import { ImageBackground } from "react-native";
+import { Text, StyleSheet } from 'react-native';
+import { color } from "native-base/lib/typescript/theme/styled-system";
+const { Cards } = elements;
+const LinearGradient = require("expo-linear-gradient").LinearGradient;
+const Banner = require("./assets/I1.jpg")
 
-export default function App() {
+
+
+const config = {
+  dependencies: {
+    "linear-gradient": LinearGradient
+  }
+};
+
+export default () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeBaseProvider config={config}>
+      <Cards />
+    </NativeBaseProvider>
   );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+};
